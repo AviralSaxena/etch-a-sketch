@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    border: 1px solid #000;
+}
+
+.grid-item {
+    height: 30px;
+    width: 30px;
+    box-sizing: border-box;
+    margin:0;
+    border: 1px solid black;
+}
