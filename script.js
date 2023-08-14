@@ -20,3 +20,12 @@ function createGrid(sideLength) {
 }
 
 createGrid(16);
+
+const gridSize = document.getElementById('gridSizeLabel');
+const gridSizeLabel = document.getElementById('gridSizeLabel');
+
+gridSizeSlider.addEventListener('change', () => {
+    const newSideLength = parseInt(gridSizeSlider.value);
+    gridSizeLabel.textContent = `Grid Size: ${newSideLength}x${newSideLength}`;
+    createGrid(newSideLength);
+});
