@@ -16,6 +16,13 @@ function createGrid(sideLength) {
             gridItem.addEventListener('mouseover', () => {
                 gridItem.classList.add('newColor');
             });
+
+            const eraserButton = document.getElementById('eraser-button');
+            eraserButton.addEventListener('click',()=>{
+                gridItem.addEventListener('mouseover', () => {
+                    gridItem.classList.remove('newColor');
+                });
+            });
         }
 }
 
