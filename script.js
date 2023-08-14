@@ -1,9 +1,22 @@
 const gridContainer=document.querySelector('.gridContainer');
 
-for (let i=0; i<16*16; i++)
-{
-    const gridItem = document.createElement('div');
-    gridItem.classList.add('grid-item');
-    // gridItem.textContent = `${i}`;
-    gridContainer.appendChild(gridItem);
+function createGrid(sideLength) {
+
+    gridContainer.innerHTML = '';
+
+    gridContainer.style.gridTemplateColumns=`repeat(${sideLength}, 1fr)`;
+    gridContainer.style.gridTemplateRows=`repeat(${sideLength}, 1fr)`;
+
+    for (let i=0; i<sideLength*sideLength; i++)
+        {
+            const gridItem = document.createElement('div');
+            gridItem.classList.add('grid-item');
+            gridContainer.appendChild(gridItem);
+
+            gridItem.addEventListener('mouseover', () => {
+                gridItem.classList.add('newColor');
+            });
+        }
 }
+
+createGrid(16);

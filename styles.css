@@ -8,15 +8,19 @@ body {
 
 .gridContainer {
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
+    height: 600px;
+    width: 600px;
     border: 1px solid #000;
 }
 
 .grid-item {
-    height: 30px;
-    width: 30px;
+    height: 100%;
+    width: 100%;
     box-sizing: border-box;
-    margin:0;
     border: 1px solid black;
 }
+
+.newColor {
+    background-color: red;
+}
+
