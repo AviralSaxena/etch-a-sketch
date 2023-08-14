@@ -2,8 +2,15 @@ body {
     margin: 0;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+.left-pane {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 600px;
 }
 
 .gridContainer {
@@ -11,6 +18,7 @@ body {
     height: 600px;
     width: 600px;
     border: 1px solid #000;
+    flex-shrink: 0;
 }
 
 .grid-item {
@@ -23,4 +31,3 @@ body {
 .newColor {
     background-color: red;
 }
-
