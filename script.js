@@ -12,6 +12,8 @@ function createGrid(sideLength) {
         gridItem.classList.add('grid-item');
         gridContainer.appendChild(gridItem);
 
+        gridItem.darknessLevel = 0;
+
         gridItem.addEventListener('mouseover', () => {
             if (colorModeActive) {
                 gridItem.style.backgroundColor = `Red`;
@@ -19,6 +21,10 @@ function createGrid(sideLength) {
                 gridItem.style.backgroundColor = 'White';
             } else if (rainbowModeActive) {
                 gridItem.style.backgroundColor = getRandomColor();
+            }
+
+            if (darkModeActive) {
+                darkSquare(gridItem);
             }
         });
     }
@@ -29,7 +35,15 @@ function getRandomColor(){
     let g = Math.floor(Math.random()*256);
     let b = Math.floor(Math.random()*256);
 
-    return `rgb(${r}, ${g}, ${b})`;
+    return `rgba(${r}, ${g}, ${b})`;
+};
+
+function darkSquare(square) {
+    square.darknessLevel += 0.1;
+    if (square.darknessLevel > 1) {
+        square.darknessLevel = 1;
+    }
+    square.style.backgroundColor = `rgba(0, 0, 0, ${square.darknessLevel})`;
 };
 
 createGrid(currentSideLength);
@@ -40,10 +54,12 @@ const colorModeButton = document.getElementById('color-mode-button');
 const eraserModeButton = document.getElementById('eraser-mode-button');
 const resetButton = document.getElementById('reset-button');
 const rainbowModeButton = document.getElementById('rainbow-mode-button');
+const darkModeButton = document.getElementById('dark-mode-button');
 
 let colorModeActive = true;
 let eraserModeActive = false;
 let rainbowModeActive = false;
+let darkModeActive = false;
 
 gridSizeSlider.addEventListener('input', () => {
     currentSideLength = parseInt(gridSizeSlider.value);
@@ -67,6 +83,7 @@ resetButton.addEventListener('click', () => {
     colorModeActive = true; 
     eraserModeActive = false;
     rainbowModeActive = false;
+    darkModeActive = false;
     createGrid(currentSideLength);
 });
 
@@ -74,4 +91,8 @@ rainbowModeButton.addEventListener('click',() => {
     colorModeActive = false; 
     eraserModeActive = false;
     rainbowModeActive = true;
+});
+
+darkModeButton.addEventListener('click', () => {
+    darkModeActive = !darkModeActive;
 });
