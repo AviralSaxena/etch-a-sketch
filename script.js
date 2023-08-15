@@ -46,6 +46,17 @@ function darkSquare(square) {
     square.style.backgroundColor = `rgba(0, 0, 0, ${square.darknessLevel})`;
 };
 
+function setActive(buttonElement) {
+    
+    colorModeButton.classList.remove('active');
+    eraserModeButton.classList.remove('active');
+    resetButton.classList.remove('active');
+    rainbowModeButton.classList.remove('active');
+    darkModeButton.classList.remove('active');
+
+    buttonElement.classList.add('active');
+}
+
 createGrid(currentSideLength);
 
 const gridSizeSlider = document.getElementById('gridSizeSlider');
@@ -71,12 +82,14 @@ colorModeButton.addEventListener('click', () => {
     colorModeActive = true;
     eraserModeActive = false;
     rainbowModeActive = false;
+    setActive(colorModeButton);
 });
 
 eraserModeButton.addEventListener('click', () => {
     colorModeActive = false;
     eraserModeActive = true;
     rainbowModeActive = false;
+    setActive(eraserModeButton);
 });
 
 resetButton.addEventListener('click', () => {
@@ -84,6 +97,7 @@ resetButton.addEventListener('click', () => {
     eraserModeActive = false;
     rainbowModeActive = false;
     darkModeActive = false;
+    setActive(colorModeButton);
     createGrid(currentSideLength);
 });
 
@@ -91,8 +105,10 @@ rainbowModeButton.addEventListener('click',() => {
     colorModeActive = false; 
     eraserModeActive = false;
     rainbowModeActive = true;
+    setActive(rainbowModeButton);
 });
 
 darkModeButton.addEventListener('click', () => {
     darkModeActive = !darkModeActive;
+    setActive(darkModeButton);
 });
