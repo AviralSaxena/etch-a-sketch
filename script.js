@@ -20,9 +20,8 @@ function createGrid(sideLength) {
             } else if (eraserModeActive) {
                 gridItem.style.backgroundColor = 'White';
             } else if (rainbowModeActive) {
-                gridItem.style.backgroundColor = getRandomColor();
-            }
-
+                gridItem.style.backgroundColor = `rgb(${rgb255()},${rgb255()},${rgb255()})`;
+            } 
             if (darkModeActive) {
                 darkSquare(gridItem);
             }
@@ -30,12 +29,8 @@ function createGrid(sideLength) {
     }
 }
 
-function getRandomColor(){
-    let r = Math.floor(Math.random()*256);  
-    let g = Math.floor(Math.random()*256);
-    let b = Math.floor(Math.random()*256);
-
-    return `rgba(${r}, ${g}, ${b})`;
+function rgb255(){
+    return Math.floor(Math.random()*256);
 };
 
 function darkSquare(square) {
@@ -111,6 +106,6 @@ rainbowModeButton.addEventListener('click',() => {
 });
 
 darkModeButton.addEventListener('click', () => {
-    darkModeActive = !darkModeActive;
+    darkModeActive = true;
     setActive(darkModeButton);
 });
