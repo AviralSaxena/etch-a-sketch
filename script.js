@@ -73,6 +73,8 @@ gridSizeSlider.addEventListener('input', () => {
     createGrid(currentSideLength);
 });
 
+colorModeButton.classList.add('active');
+
 colorModeButton.addEventListener('click', () => {
     colorModeActive = true;
     eraserModeActive = false;
