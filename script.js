@@ -82,6 +82,7 @@ colorModeButton.addEventListener('click', () => {
     colorModeActive = true;
     eraserModeActive = false;
     rainbowModeActive = false;
+    darkModeActive = false;
     setActive(colorModeButton);
 });
 
@@ -89,6 +90,7 @@ eraserModeButton.addEventListener('click', () => {
     colorModeActive = false;
     eraserModeActive = true;
     rainbowModeActive = false;
+    darkModeActive = false;
     setActive(eraserModeButton);
 });
 
